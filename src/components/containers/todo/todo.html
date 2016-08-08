@@ -1,0 +1,22 @@
+<section class="todoapp">
+  <header class="header">
+    <h1>todos</h1>
+    <todo-form on-submit="$ctrl.addTodo($todo)"></todo-form>
+  </header>
+  <!-- This section should be hidden by default and shown when there are todos -->
+  <section class="main" ng-if="$ctrl.todoList.length > 0">
+    <input class="toggle-all" type="checkbox" ng-click="$ctrl.toggleAllTodos()">
+    <label for="toggle-all">Mark all as complete</label>
+    <todo-list
+      list="$ctrl.todoList"
+      on-delete="$ctrl.deleteTodo($index)"
+      on-update="$ctrl.updateTodo($event)"
+      on-toggle="$ctrl.toggleTodo($index)">
+    </todo-list>
+  </section>
+  <!-- This footer should hidden by default and shown when there are todos -->
+  <todo-footer
+    items-left="$ctrl.incompletedItems"
+    on-clear-completed="$ctrl.clearCompleted()">
+  </todo-footer>
+</section>
