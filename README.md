@@ -1,8 +1,8 @@
-A small demo app built with:
-- Angular 1.5
-- UI-router 1.0.0-beta.1
-- MobX
-- Webpack
+A small ES5 demo app built with:
+- Angular 1.5 _for component architecture_
+- UI-router 1.0.0-beta.1 _for routing to components_
+- MobX _for state management_
+- Webpack _for module bundling_
 
 Demo: http://gaui.is/github/todoApp-angular-mobx-webpack
 
