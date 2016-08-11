@@ -12,10 +12,11 @@ function todoContainerController(todoStore, $state) {
   var self = this;
 
   var dispose = mobx.autorun(function () {
-    self.todoList = getListBasedOnFilter(todoStore.todoList, self.filter);
+    var todoList = todoStore.getAllTodos();
+    self.todoList = getListBasedOnFilter(todoList, self.filter);
+    self.incompletedItems = getListBasedOnFilter(todoList, 'active').length;
     console.log('%cNEW STATE:', 'font-weight: bold');
-    console.log(JSON.stringify(mobx.toJS(self.todoList), null, 2));
-    self.incompletedItems = getListBasedOnFilter(self.todoList, 'active').length;
+    console.log(JSON.stringify(mobx.toJS(todoList), null, 2));
   });
 
   self.$onDestroy = function $onDestroy() {

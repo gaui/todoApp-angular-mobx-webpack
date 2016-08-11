@@ -2,41 +2,44 @@ var mobx = require('mobx');
 
 function todoStore() {
   var store = this;
+  var todoList = mobx.observable([]);
 
-  store.todoList = mobx.observable([]);
+  store.getAllTodos = function getAllTodos() {
+    return todoList;
+  };
 
   store.addTodo = function addTodo(todo) {
     var newTodo = Object.assign({}, todo, {
       completed: false
     });
 
-    store.todoList.push(newTodo);
+    todoList.push(newTodo);
   };
 
   store.deleteTodo = function deleteTodo(index) {
-    store.todoList.splice(index, 1);
+    todoList.splice(index, 1);
   };
 
   store.updateTodo = function updateTodo(index, description) {
-    store.todoList[index].description = description;
+    todoList[index].description = description;
   };
 
   store.toggleTodo = function toggleTodo(index) {
-    store.todoList[index].completed = !store.todoList[index].completed;
+    todoList[index].completed = !todoList[index].completed;
   };
 
   store.toggleAllTodos = function toggleAllTodos() {
-    store.todoList.forEach(function(item) {
+    todoList.forEach(function(item) {
       item.completed = !item.completed;
     });
   };
 
   store.clearCompleted = function clearCompleted() {
-    var filteredArray = store.todoList.filter(function(item) {
+    var filteredArray = todoList.filter(function(item) {
       return !item.completed;
     });
 
-    store.todoList.replace(filteredArray);
+    todoList.replace(filteredArray);
   };
 }
 
