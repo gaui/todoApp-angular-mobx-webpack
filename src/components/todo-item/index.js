@@ -22,10 +22,12 @@ function todoItemController() {
     self.editing = true;
   };
 
-  self.deleteTodo = function deleteTodo(index) {
+  self.deleteTodo = function deleteTodo() {
     // Call parent
     self.onDelete({
-      $index: index
+      $event: {
+        index: self.index
+      }
     });
   };
 
@@ -34,7 +36,9 @@ function todoItemController() {
     self.onUpdate({
       $event: {
         index: self.index,
-        description: self.description
+        todo: {
+          description: self.description
+        }
       }
     });
 
@@ -44,7 +48,9 @@ function todoItemController() {
   self.toggleTodo = function toggleTodo() {
     // Call parent
     self.onToggle({
-      $index: self.index
+      $event: {
+        index: self.index
+      }
     });
   };
 }

@@ -1,7 +1,7 @@
 <section class="todoapp">
   <header class="header">
     <h1>todos</h1>
-    <todo-form on-submit="$ctrl.addTodo($todo)"></todo-form>
+    <todo-form on-submit="$ctrl.addTodo($event)"></todo-form>
   </header>
   <!-- This section should be hidden by default and shown when there are todos -->
   <section class="main" ng-if="$ctrl.todoList.length > 0">
@@ -9,9 +9,9 @@
     <label for="toggle-all">Mark all as complete</label>
     <todo-list
       list="$ctrl.todoList"
-      on-delete="$ctrl.deleteTodo($index)"
+      on-delete="$ctrl.deleteTodo($event)"
       on-update="$ctrl.updateTodo($event)"
-      on-toggle="$ctrl.toggleTodo($index)">
+      on-toggle="$ctrl.toggleTodo($event)">
     </todo-list>
   </section>
   <!-- This footer should hidden by default and shown when there are todos -->

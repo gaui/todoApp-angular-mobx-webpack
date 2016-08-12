@@ -20,8 +20,8 @@ function todoStore() {
     todoList.splice(index, 1);
   };
 
-  store.updateTodo = function updateTodo(index, description) {
-    todoList[index].description = description;
+  store.updateTodo = function updateTodo(index, todo) {
+    todoList[index].description = todo.description;
   };
 
   store.toggleTodo = function toggleTodo(index) {

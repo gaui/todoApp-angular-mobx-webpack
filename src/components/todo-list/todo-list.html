@@ -6,9 +6,9 @@
       index="$index"
       description="todo.description"
       completed="todo.completed"
-      on-delete="$ctrl.deleteTodo($index)"
+      on-delete="$ctrl.deleteTodo($event)"
       on-update="$ctrl.updateTodo($event)"
-      on-toggle="$ctrl.toggleTodo($index)">
+      on-toggle="$ctrl.toggleTodo($event)">
       </todo-item>
   </div>
 </ul>

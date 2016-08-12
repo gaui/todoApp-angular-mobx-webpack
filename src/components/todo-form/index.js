@@ -17,7 +17,9 @@ function todoFormController() {
   self.submitForm = function submitForm() {
     // Call parent
     self.onSubmit({
-      $todo: self.newTodo
+      $event: {
+        todo: self.newTodo
+      }
     });
 
     resetTodo();

@@ -23,20 +23,20 @@ function todoContainerController(todoStore, $state) {
     dispose();
   };
 
-  self.addTodo = function addTodo(todo) {
-    todoStore.addTodo(todo);
+  self.addTodo = function addTodo(event) {
+    todoStore.addTodo(event.todo);
   };
 
-  self.deleteTodo = function deleteTodo(index) {
-    todoStore.deleteTodo(index);
+  self.deleteTodo = function deleteTodo(event) {
+    todoStore.deleteTodo(event.index);
   };
 
   self.updateTodo = function updateTodo(event) {
-    todoStore.updateTodo(event.index, event.description);
+    todoStore.updateTodo(event.index, event.todo);
   };
 
-  self.toggleTodo = function toggleTodo(index) {
-    todoStore.toggleTodo(index);
+  self.toggleTodo = function toggleTodo(event) {
+    todoStore.toggleTodo(event.index);
   };
 
   self.toggleAllTodos = function toggleAllTodos() {

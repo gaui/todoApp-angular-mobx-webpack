@@ -12,10 +12,12 @@ var todoList = {
 function todoListController() {
   var self = this;
 
-  self.deleteTodo = function deleteTodo(index) {
+  self.deleteTodo = function deleteTodo(event) {
     // Call parent
     self.onDelete({
-      $index: index
+      $event: {
+        index: event.index
+      }
     });
   };
 
@@ -24,15 +26,17 @@ function todoListController() {
     self.onUpdate({
       $event: {
         index: event.index,
-        description: event.description
+        todo: event.todo
       }
     });
   };
 
-  self.toggleTodo = function toggleTodo(index) {
+  self.toggleTodo = function toggleTodo(event) {
     // Call parent
     self.onToggle({
-      $index: index
+      $event: {
+        index: event.index
+      }
     });
   };
 }
