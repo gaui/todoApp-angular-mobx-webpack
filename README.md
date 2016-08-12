@@ -6,4 +6,6 @@ A small ES5 demo app built with:
 
 Demo: http://gaui.is/github/todoApp-angular-mobx-webpack
 
+Implementation details: http://gaui.is/angular-1-5-todo-app
+
 Regards to [TodoMVC](http://todomvc.com)
